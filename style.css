@@ -1,0 +1,116 @@
+body {
+  font-family: "Press Start 2P", system-ui;
+  height: 100dvh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #111;
+  color: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+
+/* The screen with the game area */
+
+.gameArea {
+  position: absolute;
+  width: 850px;
+  height: 350px;
+  background: rgba(7, 26, 49, 0.6);
+  top: 434px;
+  border: #919bbec7 10px solid;
+  border-radius: 30px;
+  backdrop-filter: blur(4px);
+  transform: perspective(1000px) rotateX(20deg) scaleX(0.54) scaleY(0.84);
+  right: 20px;
+}
+/* Arcade machine image */
+.bg {
+  position: absolute;
+  height: 1500px;
+  z-index: -1;
+}
+
+.paddle {
+  height: 100px;
+  width: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  position: absolute;
+  top: 125px;
+}
+
+.paddle2 {
+  right: 0;
+}
+
+.ball {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  left: 415px;
+  top: 170px;
+  box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.9);
+}
+
+.net {
+  position: absolute;
+  border-right: 8px rgba(255, 255, 255, 0.3) dotted;
+  height: 96%;
+  top: 2%;
+  left: calc(50% - 4px);
+}
+/* PONG title */
+.title {
+  position: absolute;
+  top: 140px;
+  font-size: 26px;
+  color: rgb(160, 41, 41);
+  right: 405px;
+  cursor: default;
+}
+
+.score {
+  position: absolute;
+  top: 340px;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+.player1Score {
+  left: calc(50% - 200px);
+}
+
+.player2Score {
+  right: calc(50% - 200px);
+}
+
+/* "Press any key to start" text */
+.startText {
+  position: absolute;
+  margin: 0;
+  top: 80%;
+  z-index: 1;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background: #222;
+  border-radius: 4px;
+  padding: 10px;
+}
+
+/* Darkening of the corners to create a better visual for the game */
+
+.vignett {
+  height: 100dvh;
+  width: auto;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 0) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
