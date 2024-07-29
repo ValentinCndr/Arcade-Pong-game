@@ -5,7 +5,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #111;
+  background: #000;
   color: rgba(255, 255, 255, 0.9);
   overflow: hidden;
 }
@@ -13,24 +13,25 @@ body {
 /* The screen with the game area */
 
 .gameArea {
-  position: absolute;
-  width: 850px;
+  position: absolute; /* Positioned absolutely within the nearest positioned ancestor */
+  width: 800px;
   height: 350px;
-  background: rgba(7, 26, 49, 0.6);
-  top: 434px;
-  border: #919bbec7 10px solid;
-  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  top: 325px;
+  border: rgba(0, 0, 0, 0.6) 10px solid;
+  border-radius: 35px;
   backdrop-filter: blur(4px);
-  transform: perspective(1000px) rotateX(20deg) scaleX(0.54) scaleY(0.84);
-  right: 20px;
+  transform: perspective(900px) rotateX(10deg) scaleX(0.44) scaleY(0.79); /* 3D transformation */
 }
 /* Arcade machine image */
 .bg {
-  position: absolute;
-  height: 1500px;
-  z-index: -1;
+  position: absolute; /* Fixed position relative to the viewport */
+  top: -150px; /* Position from the top */
+  height: 1750px; /* Height of the image */
+  z-index: -1; /* Place behind other elements */
 }
 
+/* Common Paddle Styling */
 .paddle {
   height: 100px;
   width: 20px;
@@ -39,21 +40,24 @@ body {
   top: 125px;
 }
 
+/* Specific styling for player 2's paddle */
 .paddle2 {
   right: 0;
 }
 
+/* Ball styling */
 .ball {
   position: absolute;
   height: 20px;
-  width: 20px;
+  width: 30px;
   background: rgba(255, 255, 255, 0.9);
-  border-radius: 4px;
-  left: 415px;
+  border-radius: 10px;
+  left: 385px;
   top: 170px;
-  box-shadow: 4px 10px 4px rgba(0, 0, 0, 0.9);
+  box-shadow: 4px 10px 4px rgba(255, 255, 255, 0.2);
 }
 
+/* Net styling */
 .net {
   position: absolute;
   border-right: 8px rgba(255, 255, 255, 0.3) dotted;
@@ -61,56 +65,58 @@ body {
   top: 2%;
   left: calc(50% - 4px);
 }
-/* PONG title */
+
+/* PONG title styling */
 .title {
   position: absolute;
-  top: 140px;
-  font-size: 26px;
-  color: rgb(160, 41, 41);
-  right: 405px;
+  font-size: 40px;
+  background-image: linear-gradient(
+    to right,
+    rgb(239, 56, 56),
+    rgb(77, 181, 242),
+    yellow,
+    rgb(77, 181, 242),
+    rgb(239, 56, 56)
+  );
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  text-align: center;
   cursor: default;
 }
 
+/* Common score styling */
 .score {
   position: absolute;
-  top: 340px;
+  top: 230px;
   display: flex;
   width: 60px;
   height: 60px;
   justify-content: center;
   align-items: center;
+  font-size: 25px;
 }
 
+/* Specific styling for player 1's score */
 .player1Score {
-  left: calc(50% - 200px);
+  left: calc(50% - 200px); /* Positioned to the left of the center */
 }
 
+/* Specific styling for player 2's score */
 .player2Score {
-  right: calc(50% - 200px);
+  right: calc(50% - 200px); /* Positioned to the right of the center */
 }
 
 /* "Press any key to start" text */
 .startText {
   position: absolute;
   margin: 0;
-  top: 80%;
+  top: 90%;
   z-index: 1;
-  left: 52%;
+  left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  background: #222;
-  border-radius: 4px;
   padding: 10px;
-}
-
-/* Darkening of the corners to create a better visual for the game */
-
-.vignett {
-  height: 100dvh;
-  width: auto;
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0) 50%,
-    rgba(0, 0, 0, 1) 100%
-  );
+  font-size: 20px;
+  text-shadow: 5px 5px 0px #000, -5px -5px 0px #000;
 }
